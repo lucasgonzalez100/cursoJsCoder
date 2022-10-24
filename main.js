@@ -1,41 +1,99 @@
 
-//let autoElegido = prompt ("selecione su auto"),dni = prompt ("ingrese su dni"),monto = parseInt ( prompt  ("ingrese el monto a financiar")),cuota = parseInt ( prompt  ("ingrese la cantidad de cuotas "));
+const usuario = document.getElementById("usuario"),
+   dni = document.getElementById("dni"),
+   email = document.getElementById("email"),
+   contraseña = document.getElementById("contraseña"),
+   contraseña2 = document.getElementById("contraseña2"),
+  crearPerfil = document.getElementById("crearPerfil"),
+  alertas = document.getElementById("alarmas")
+
+crearPerfil.addEventListener("click",validacionPerfil )
+
+   function validacionPerfil ( )
+   {
+    let alarmas =""
+    let entrar = false
+    let regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,4}))$/
+   
+    alertas.innerHTML = ""
+
+
+    if (usuario.value.length <6)
+    {
+       alarmas += 'El nombre es muy corto <br>'
+       entrar = true
+    }  
+
+    if (dni.value < 7){
+      alarmas += 'El dni es muy corta <br>'
+      entrar = true
+   }  
+
+    if (!regexEmail.test(email.value)){
+      alarmas += 'El email es invalido <br>'
+      entrar= true
+    }
+
+    if (contraseña.value < 6){
+    alarmas += 'La contraseña es muy corta deben ser al menos 6 caracteres <br>'
+    entrar = true
+ }  
+
+ if (contraseña2.value != contraseña.value){
+    alarmas += "Las contraseñas no coinciden <br>"
+    entrar = true
+ }
+
+    if (entrar){
+      alertas.innerHTML = alarmas
+    } 
+    else{
+      alertas.innerHTML = "perfil creado "
+    }
+   }
+
 
 const interes = 18;
 
 let monto = document.getElementById("monto")
 cuota = document.getElementById("cuotas")
-dni = document.getElementById("dni")
-
-let calcular = document.getElementById("calcular")
+calcular = document.getElementById("calcular")
+contenedorDinamico = document.getElementById("contenedorDinamico")
 
 calcular.addEventListener("click", accionBtn)
 
+
 function calculoInteres() {
-   financiacion = interes * cuota.value;
+   financiacion = interes * parseFloat(cuota.value);
    montoInteres = (financiacion / 100) * monto.value;
    cuotaFinal = (montoInteres + parseFloat(monto.value)) / cuota.value;
    montoCuotaConInteres = montoInteres + parseInt(monto.value);
 
-   alert("usted abonara " + cuota.value + " cuotas de " + cuotaFinal + " monto final " + montoCuotaConInteres)
-}
- 
-function accionBtn () {
-if ((monto.value < 1) || (cuota.value < 1)) { alert("alguno de los valores ingresados es negativo o cero") }
+  // contenedorDinamico.innerHTML = "usted abonara alguito" 
 
-//else if ((monto.value === parseInt(monto.value)) && (cuota.value === parseInt(cuota.value))) { calculoInteres() }
+   salidaResultado = "usted abonara " + cuota.value + " cuotas de $" + parseInt(cuotaFinal) + " monto final $" + parseFloat(montoCuotaConInteres)
 
-else {
+   contenedorDinamico.innerHTML = salidaResultado
 
-  calculoInteres()
-}
+   //alert("usted abonara " + cuota.value + " cuotas de $" + parseInt(cuotaFinal) + " monto final $" + parseFloat(montoCuotaConInteres))
 }
 
-// let contenedorResultado = document.createElement("div");
+function accionBtn() {
+   if ((monto.value < 1) || (cuota.value < 1)) {
+      
+      contenedorDinamico.innerHTML="algunos de los valores es 0 o negativo" }
 
-//contenedorResultado.innerHTML= "<h3> usted abonara + cuotas + de + cuotaFinal </h3>"
+   else {
+
+      calculoInteres()
+   }
+}
 
 
+
+
+
+//" cuotas de $" ${ parseInt (cuotaFinal) }" monto final $" ${ parseFloat (montoCuotaConInteres)};
 
 class autos {
 
@@ -51,7 +109,6 @@ class autos {
    }
 }
 
-
 const auto1 = new autos(01, "chevrolet", 2020, "cruze", "gris", 18000, "cashback", 3000000)
 
 const auto2 = new autos(02, "renault", 2018, "clio", "blanco", 80000, "cashback", 1200000)
@@ -61,4 +118,3 @@ const autoUnico = { id: 00, marca: "ford", anio: 2015, version: "fiesta", color:
 
 console.log(auto1)
 console.log(auto2)
-console.log(autoUnico)
