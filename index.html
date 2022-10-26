@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="main.js">    
+    <link rel="stylesheet" href="main.js">
 
     <title>Simulador de prestamo</title>
 </head>
@@ -16,43 +16,40 @@
 
     <h1>Crear cuenta </h1>
 
-
     <div class="form">
-        
-        <form  class="form__all" action="">
 
+        <form class="form__all" action="">
 
-            <div class="form-control"><label for="usuario" >Usuario</label  >
-                <input  id="usuario" type="text" placeholder="nombre" >
+            <div class="form-control"><label for="usuario">Usuario</label>
+                <input id="usuario" type="text" placeholder="nombre">
             </div>
 
             <div class="form-control"><label for="dni">Dni</label>
-                <input  id="dni" type="number" placeholder="12345678">
-                
+                <input id="dni" type="number" placeholder="12345678">
+
             </div>
 
             <div class="form-control"><label for="email">Email</label>
-                <input  id="email" type="text" placeholder="ejemplo@gmail.com">
-                
+                <input id="email" type="text" placeholder="ejemplo@gmail.com">
+
             </div>
 
             <div class="form-control"><label for="contraseña">Contraseña</label>
-                <input  id="contraseña" type="password" placeholder="contraseña">
-                
+                <input id="contraseña" type="password" placeholder="contraseña">
+
             </div>
 
-            <div  class="form-control"><label for="contraseña2">Repita su Contraseña</label>
-                <input  id="contraseña2" type="password" placeholder=" repita su contraseña">
-                
+            <div class="form-control"><label for="contraseña2">Repita su Contraseña</label>
+                <input id="contraseña2" type="password" placeholder=" repita su contraseña">
+
             </div>
 
-             <button id="crearPerfil" class="boton__calcular" type="button" >Crear</button>
-       
-             <p class="alarmas" id="alarmas"></p>
-            </form>
+            <button id="crearPerfil" class="boton__calcular" type="button">Crear</button>
+            <button id="ingresarPerfil" class="ingreso__perfil" type="button">ya tengo cuenta</button>
+
+            <p class="alarmas" id="alarmas"></p>
+        </form>
     </div>
-
-
 
     <h1>Simula aqui tu prestamo</h1>
     <main class="form">
@@ -68,16 +65,10 @@
 
             <button class="boton__calcular" type="button" name="Calcular" placeholder="Calcular" id="calcular">
                 Calcular</button>
-         
-                <div class="contenedor__prestamo" id="contenedorDinamico"> </div>
-                
+
+            <div class="contenedor__prestamo" id="contenedorDinamico"> </div>
+
         </form>
-       
-
-
-
-        
-        
 
         <script src="main.js"></script>
 </body>
