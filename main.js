@@ -7,34 +7,16 @@
    console.log (datos)
    console.log (datos.oficial)
    console.log (datos.oficial.value_buy)
- 
-
+   let htmlApi = `<p id ="cardApi" > el precio oficial del dolar es <br> 
+   para compra: $${datos.oficial.value_buy} ,
+   para venta : $${datos.oficial.value_sell} ,
+   valor promedio: $${datos.oficial.value_avg}.</p>`
+   const cardApi = document.getElementById("cardApi")
+   cardApi.innerHTML += htmlApi
 
   }
 
-const cardApi = ducument.getElementById("cardApi")
-console.log (cardApi)
-
-
-
-//  function crearHtmlApi (){
-//    cardApi=""
-   
-//  let HtmlApi = "<h1>holaaa</h1>"
-//  console.log(containerDinamicoApi)
-// containerDinamicoApi.innerHTML += HtmlApi
-// htmlApi=" ella es un sol "
-
-// // let htmlApi = `<p> hola ${oficial.value_buy}</p>
-// //    <p>${oficial.value_sell}</p>
-// //    <p>${oficial.value_avg}</p> `
-
-//  containerDinamico.innerHTML += htmlApi;}
-
-  apifetch ()
-
-//   crearHtmlApi()
-
+apifetch ()
 
 
 
