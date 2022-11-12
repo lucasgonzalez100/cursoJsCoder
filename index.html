@@ -16,9 +16,11 @@
 
 <body>
 
+    <!-- aqui estara la api de precios      -->
+
+
     <div class="cardApi">
         <p id="cardApi"> </p>
-        <!-- aqui estara la api de precios      -->
 
     </div>
 
@@ -54,6 +56,7 @@
 
             <button id="crearPerfil" class="boton__calcular" type="button">Crear</button>
 
+            <!-- formulario de login cuenta ya creada  -->
 
             <button id="ingresarPerfil" class="ingreso__perfil" type="button">
                 ya tengo cueta
@@ -63,45 +66,44 @@
         </form>
     </div>
 
-    <!-- <a href="./simulador.html">ya tengo cuenta</a>  -->
-    <div id="formLogin" class="form__login">
-        <div id="displayNone" class="display__none" class="form">
-            <h3>ingresar a mi cuenta</h3>
-            <form class="form__all" action="">
+    <div id="displayNone" class="display__none" class="form_storage">
+        <h3>ingresar a mi cuenta</h3>
+        <form class="form__all" action="">
 
-                <div class="form-control"><label for="usuario">Usuario</label>
-                    <input required id="usuarioStorage" type="text" placeholder="nombre">
-                </div>
+            <div class="form-control"><label for="usuario">Usuario</label>
+                <input required id="usuarioStorage" type="text" placeholder="nombre">
+            </div>
 
-                <div class="form-control"><label for="contraseñaStorage">Contraseña</label>
-                    <input required id="contraseña" type="password" placeholder="contraseña">
+            <div class="form-control"><label for="contraseñaStorage">Contraseña</label>
+                <input required id="contraseñaStorage" type="password" placeholder="contraseña">
 
-                </div>
-        </div>
+            </div>
+    </div>
 
-        <h1>Simula aqui tu prestamo</h1>
-        <main class="form">
+    <!-- simulador de prestamo -->
 
-            <form class="form__all">
-                <h2> Solicite su prestamo</h2>
+    <h1>Simula aqui tu prestamo</h1>
+    <main class="form">
 
-                <label for="dni">Ingrese su N° DNI:</label> <input type="number" placeholder="DNI" name="DNI"
-                    id="dni"><br>
-                <label for="Monto">Ingrese el monto a financiar:</label><input type="number" placeholder="Monto"
-                    name="Monto" id="monto"> <br>
-                <label for="cuotas">Ingrese cuantas cuotas: </label> <input type="number" placeholder="cuotas"
-                    name="cuotas" id="cuotas"><br>
+        <form class="form__all">
+            <h2> Solicite su prestamo</h2>
 
-                <button class="boton__calcular" type="button" name="Calcular" placeholder="Calcular" id="calcular">
-                    Calcular</button>
+            <label for="dni">Ingrese su N° DNI:</label> <input type="number" placeholder="DNI" name="DNI" id="dni"><br>
+            <label for="Monto">Ingrese el monto a financiar:</label><input type="number" placeholder="Monto"
+                name="Monto" id="monto"> <br>
+            <label for="cuotas">Ingrese cuantas cuotas: </label> <input type="number" placeholder="cuotas" name="cuotas"
+                id="cuotas"><br>
 
-                <div class="contenedor__prestamo" id="contenedorDinamico"> </div>
+            <button class="boton__calcular" type="button" name="Calcular" placeholder="Calcular" id="calcular">
+                Calcular</button>
 
-            </form>
+            <div class="contenedor__prestamo" id="contenedorDinamico"> </div>
 
-            <script src="simulador.js"></script>
+        </form>
 
-            <script src="main.js"></script>
+        <script src="simulador.js"></script>
+
+        <script src="main.js"></script>
 </body>
 
 </html>

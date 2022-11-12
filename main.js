@@ -1,12 +1,8 @@
-
-
-   const  apifetch = async ()=>{
-  const url = "https://api.bluelytics.com.ar/v2/latest";
-   const respuesta = await fetch(url) ;
+//carga de api y pintado en el dom
+const apifetch = async () => {
+   const url = "https://api.bluelytics.com.ar/v2/latest";
+   const respuesta = await fetch(url);
    const datos = await respuesta.json();
-   console.log (datos)
-   console.log (datos.oficial)
-   console.log (datos.oficial.value_buy)
    let htmlApi = `<div class="tabla_cambio">
    <div class="tabla_cambio_cu">
        <p id="cardApi"> el precio oficial del dolar es : <br>
@@ -25,12 +21,11 @@
    const cardApi = document.getElementById("cardApi")
    cardApi.innerHTML += htmlApi
 
-  }
+}
 
-apifetch ()
+apifetch()
 
-
-
+//formulario de creacion de perfil 
 let usuario = document.getElementById("usuario"),
    dni = document.getElementById("dni"),
    email = document.getElementById("email"),
@@ -99,15 +94,11 @@ ingresarPerfil.addEventListener("click", recuperoPerfil)
 // formDisplay = document.getElementByid("displayNone")
 
 
-
 function recuperoPerfil() {
 
    ingresarPerfil.classList.remove("display__none")
-
-   let formLo = ""
    formDisplay.classList.remove("display__none")
 
-   formLogin.innerHTML = formLo
 
    //   cuenta =  localStorage.getItem ("nuevoPerfil")
 
@@ -116,9 +107,6 @@ function recuperoPerfil() {
    //    console.log (cuentaLogin)
 
 }
-// carga de api con valores de dolar 
-// ID : 7fd7ae1455876d5c767bdfbda953c898 CONTEXTO : fintech/ar/bcra/dolar_value 
-// https://cont.certisend.com/web/container/api/v1/fintech/ar/bcra/dolar_value
 
 
 
