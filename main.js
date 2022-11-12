@@ -1,18 +1,53 @@
 
-const usuario = document.getElementById("usuario"),
+   const  apifetch = async ()=>{
+  const url = "https://api.bluelytics.com.ar/v2/latest";
+   const respuesta = await fetch(url) ;
+   const datos = await respuesta.json();
+   console.log (datos)
+   console.log (datos.oficial)
+   console.log (datos.oficial.value_buy)
+   
+   crearHtml(datos)
+
+  }
+
+
+ function crearHtml (){
+   let htmlApi="<h1>holaaa</h1>"
+containerDinamico = ducument.getElementById ("containerDinamicoApi").innerHtml=htmlApi
+
+ htmlApi += `<div class="containerDinamicoApi">
+   <p> hola ${oficial.value_buy}</p>
+   <p>${oficial.value_sell}</p>
+   <p>${oficial.value_avg}</p>
+   </div>`
+
+ containerDinamico.innerHTML = htmlApi;}
+  
+
+  apifetch ()
+
+
+
+
+let usuario = document.getElementById("usuario"),
    dni = document.getElementById("dni"),
    email = document.getElementById("email"),
    contraseña = document.getElementById("contraseña"),
    contraseña2 = document.getElementById("contraseña2"),
-   crearPerfil = document.getElementById("crearPerfil"),
-   alertas = document.getElementById("alarmas")
-
+   //boton para crear perfil
+   crearPerfil = document.getElementById("crearPerfil")
 crearPerfil.addEventListener("click", validacionPerfil)
+alertas = document.getElementById("alarmas")
 
 function validacionPerfil() {
    let alarmas = ""
    let entrar = false
    let regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,4}))$/
+
+   const user = { usuario: usuario.value, dni: dni.value, email: email.value, contraseña: contraseña.value, contraseña2: contraseña2.value }
+
+   usuarioLocal = JSON.stringify(user);
 
    alertas.innerHTML = ""
 
@@ -46,83 +81,44 @@ function validacionPerfil() {
    }
    else {
       alertas.innerHTML = "perfil creado "
-      // guardarUsuario ()
+
+      localStorage.setItem("nuevoPerfil", usuarioLocal);
+
+      localStorage.getItem("nuevoPerfil")
+      return
    }
 }
 
+// formulario de recuperacion de perfil e ingerso a la cuenta 
 
-//   function guardarUsuario () {
-//     let user = {usuario: usuario.value, contraseña: contraseña.value };
-  
-//             if (valor === "sessionStorage") { 
-//                sessionStorage.setItem("item", JSON.stringify(user)); } 
-//            if (valor === "localStorage") { 
-//             localStorage.setItem("item", JSON.stringify(user)); 
-//              return user}
+let formLogin = document.getElementById("formLogin")
+ingresarPerfil = document.getElementById("ingresarPerfil")
+ingresarPerfil.addEventListener("click", recuperoPerfil)
 
-//            function recuperarDatos() { 
-//             if ( (usuario.value = datos.usuario) && (contraseña.value = datos.contraseña) ) { 
-            
-//             (JSON.parse(localStorage.getItem("item")));
-//              sesionbtn.addEventListener("submit", (event) => {
-//                 console.log(event.target); 
-//                 event.preventDefault(); 
-//                if (checkbox.checked) { guardar("localStorage"); } 
-//                else { guardar("sessionStorage"); }});
+// formDisplay = document.getElementByid("displayNone")
 
 
-ingresoPerfil = document.getElementById ("ingresoPerfil")
 
+function recuperoPerfil() {
 
-const interes = 18;
-let monto = document.getElementById("monto")
-cuota = document.getElementById("cuotas")
-calcular = document.getElementById("calcular")
-contenedorDinamico = document.getElementById("contenedorDinamico")
+   ingresarPerfil.classList.remove("display__none")
 
-calcular.addEventListener("click", accionBtn)
+   let formLo = ""
+   formDisplay.classList.remove("display__none")
 
-function calculoInteres() {
-   financiacion = interes * parseFloat(cuota.value);
-   montoInteres = (financiacion / 100) * monto.value;
-   cuotaFinal = (montoInteres + parseFloat(monto.value)) / cuota.value;
-   montoCuotaConInteres = montoInteres + parseInt(monto.value);
+   formLogin.innerHTML = formLo
 
-   salidaResultado = "usted abonara " + cuota.value + " cuotas de $" + parseInt(cuotaFinal) + " monto final $" + parseFloat(montoCuotaConInteres)
+   //   cuenta =  localStorage.getItem ("nuevoPerfil")
 
-   contenedorDinamico.innerHTML = salidaResultado
+   //   cuentaLogin = JSON.parse(cuenta)
+
+   //    console.log (cuentaLogin)
+
 }
-
-function accionBtn() {
-   if ((monto.value < 1) || (cuota.value < 1)) {
-
-      contenedorDinamico.innerHTML = "algunos de los valores es 0 o negativo"
-   }
-
-   else { calculoInteres()
-   }
-}
-
-class autos {
-
-   constructor(id, marca, anio, version, color, kilometraje, estilo, precio) {
-      this.id = id;
-      this.marca = marca;
-      this.anio = anio;
-      this.version = version;
-      this.color = color;
-      this.kilometraje = kilometraje;
-      this.estilo = estilo;
-      this.precio = precio;
-   }
-}
-
-const auto1 = new autos(01, "chevrolet", 2020, "cruze", "gris", 18000, "cashback", 3000000)
-
-const auto2 = new autos(02, "renault", 2018, "clio", "blanco", 80000, "cashback", 1200000)
+// carga de api con valores de dolar 
+// ID : 7fd7ae1455876d5c767bdfbda953c898 CONTEXTO : fintech/ar/bcra/dolar_value 
+// https://cont.certisend.com/web/container/api/v1/fintech/ar/bcra/dolar_value
 
 
-const autoUnico = { id: 00, marca: "ford", anio: 2015, version: "fiesta", color: "azul", kilometraje: 50000, estilo: "sedan", precio: 2500000 };
 
-console.log(auto1)
-console.log(auto2)
+
