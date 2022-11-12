@@ -115,8 +115,9 @@ img {
     margin-top: 2rem;
     padding: 1rem;
 }
-#containerDinamicoApi {
-    background-color:beige;
+#cardApi {
+    background-color:rgb(242, 242, 232);
     width: 100%;
     height: 3rem;
+    margin-top: 0px;
 }

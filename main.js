@@ -1,4 +1,5 @@
 
+
    const  apifetch = async ()=>{
   const url = "https://api.bluelytics.com.ar/v2/latest";
    const respuesta = await fetch(url) ;
@@ -6,24 +7,33 @@
    console.log (datos)
    console.log (datos.oficial)
    console.log (datos.oficial.value_buy)
-   
-   crearHtml(datos)
+ 
+
 
   }
 
+const cardApi = ducument.getElementById("cardApi")
+console.log (cardApi)
 
- function crearHtml (){
+
+
+//  function crearHtmlApi (){
+//    cardApi=""
    
-containerDinamico = ducument.getElementById ("containerDinamicoApi")
+//  let HtmlApi = "<h1>holaaa</h1>"
+//  console.log(containerDinamicoApi)
+// containerDinamicoApi.innerHTML += HtmlApi
+// htmlApi=" ella es un sol "
 
-let htmlApi = `<p> hola ${oficial.value_buy}</p>
-   <p>${oficial.value_sell}</p>
-   <p>${oficial.value_avg}</p> `
+// // let htmlApi = `<p> hola ${oficial.value_buy}</p>
+// //    <p>${oficial.value_sell}</p>
+// //    <p>${oficial.value_avg}</p> `
 
- containerDinamico.innerHTML += htmlApi;}
-  
+//  containerDinamico.innerHTML += htmlApi;}
 
   apifetch ()
+
+//   crearHtmlApi()
 
 
 
