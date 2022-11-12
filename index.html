@@ -80,7 +80,26 @@
                 </div>
     </div>
 
-    
+    <h1>Simula aqui tu prestamo</h1>
+    <main class="form">
+
+        <form class="form__all">
+            <h2> Solicite su prestamo</h2>
+
+            <label for="dni">Ingrese su N° DNI:</label> <input type="number" placeholder="DNI" name="DNI" id="dni"><br>
+            <label for="Monto">Ingrese el monto a financiar:</label><input type="number" placeholder="Monto"
+                name="Monto" id="monto"> <br>
+            <label for="cuotas">Ingrese cuantas cuotas: </label> <input type="number" placeholder="cuotas" name="cuotas"
+                id="cuotas"><br>
+
+            <button class="boton__calcular" type="button" name="Calcular" placeholder="Calcular" id="calcular">
+                Calcular</button>
+
+            <div class="contenedor__prestamo" id="contenedorDinamico"> </div>
+
+        </form>
+
+        <script src="simulador.js"></script>
 
         <script src="main.js"></script>
 </body>

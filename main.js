@@ -13,16 +13,14 @@
 
 
  function crearHtml (){
-   let htmlApi="<h1>holaaa</h1>"
-containerDinamico = ducument.getElementById ("containerDinamicoApi").innerHtml=htmlApi
+   
+containerDinamico = ducument.getElementById ("containerDinamicoApi")
 
- htmlApi += `<div class="containerDinamicoApi">
-   <p> hola ${oficial.value_buy}</p>
+let htmlApi = `<p> hola ${oficial.value_buy}</p>
    <p>${oficial.value_sell}</p>
-   <p>${oficial.value_avg}</p>
-   </div>`
+   <p>${oficial.value_avg}</p> `
 
- containerDinamico.innerHTML = htmlApi;}
+ containerDinamico.innerHTML += htmlApi;}
   
 
   apifetch ()
