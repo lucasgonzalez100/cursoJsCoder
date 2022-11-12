@@ -7,10 +7,21 @@
    console.log (datos)
    console.log (datos.oficial)
    console.log (datos.oficial.value_buy)
-   let htmlApi = `<p id ="cardApi" > el precio oficial del dolar es <br> 
-   para compra: $${datos.oficial.value_buy} ,
-   para venta : $${datos.oficial.value_sell} ,
-   valor promedio: $${datos.oficial.value_avg}.</p>`
+   let htmlApi = `<div class="tabla_cambio">
+   <div class="tabla_cambio_cu">
+       <p id="cardApi"> el precio oficial del dolar es : <br>
+           para compra: $${datos.oficial.value_buy} ,
+           para venta : $${datos.oficial.value_sell} ,
+           valor promedio: $${datos.oficial.value_avg}.</p>
+   </div>
+   <div class="tabla_cambio_cu">
+       <p id="cardApi"> el precio del dolar blue es : <br>
+           para compra: $${datos.blue.value_buy} ,
+           para venta : $${datos.blue.value_sell} ,
+           valor promedio: $${datos.blue.value_avg}.</p>
+   </div>
+</div>
+`
    const cardApi = document.getElementById("cardApi")
    cardApi.innerHTML += htmlApi
 
