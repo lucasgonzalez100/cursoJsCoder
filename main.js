@@ -87,24 +87,39 @@ function validacionPerfil() {
 
 // formulario de recuperacion de perfil e ingerso a la cuenta 
 
-let formLogin = document.getElementById("formLogin")
-ingresarPerfil = document.getElementById("ingresarPerfil")
+let ingresarPerfil = document.getElementById("ingresarPerfil")
 ingresarPerfil.addEventListener("click", recuperoPerfil)
 
 // formDisplay = document.getElementByid("displayNone")
 
 
 function recuperoPerfil() {
+  let formValidacion = document.getElementById ("formValidacion")
 
-   ingresarPerfil.classList.remove("display__none")
-   formDisplay.classList.remove("display__none")
+  formTipiado=`
+  <div  class="form_storage">
+  <h3>ingresar a mi cuenta</h3>
+  <form id="formValidacion" class="form__all" action="">
+
+  <div class="form-control"><label for="usuario">Usuario</label>
+  <input required id="usuarioStorage" type="text" placeholder="nombre">
+</div>
+
+<div class="form-control"><label for="contraseñaStorage">Contraseña</label>
+  <input required id="contraseñaStorage" type="password" placeholder="contraseña">
+
+</div>
+</div>
+  `
+  divForm = document.createElement("div")
+  divForm.innerHTML= formTipiado
+  formValidacion.appendChild(divForm)
+
+ 
 
 
-   //   cuenta =  localStorage.getItem ("nuevoPerfil")
 
-   //   cuentaLogin = JSON.parse(cuenta)
 
-   //    console.log (cuentaLogin)
 
 }
 
