@@ -80,8 +80,8 @@ function validacionPerfil() {
 
       localStorage.setItem("nuevoPerfil", usuarioLocal);
 
-      localStorage.getItem("nuevoPerfil")
-      return
+      // localStorage.getItem("nuevoPerfil")
+      // return
    }
 }
 
@@ -99,7 +99,7 @@ function recuperoPerfil(e) {
    let formValidacion = document.getElementById("formValidacion")
    formTipiado = `
   <div  class="form_storage">
-  <h3>ingresar a mi cuenta</h3>
+  <h2>ingresar a mi cuenta</h2>
   <form  class="form__all" action="">
 
   <div class="form-control"><label for="usuario">Usuario</label>
@@ -108,13 +108,43 @@ function recuperoPerfil(e) {
 
 <div class="form-control"><label for="contraseñaStorage">Contraseña</label>
   <input required id="contraseñaStorage" type="password" placeholder="contraseña">
+
 </div>
+
+<button id="ingresarCuenta" class="boton__calcular" type="button">Ingresar</button>
 </div>
   `
    divForm = document.createElement("div")
    divForm.innerHTML = formTipiado
    formValidacion.appendChild(divForm)
+
+   let ingresarCuenta = document.getElementById("ingresarCuenta")
+ingresarCuenta.addEventListener("click",igualarCuenta )
    }
+
+// let ingresarCuenta = document.getElementById("ingresarCuenta")
+// ingresarCuenta.addEventListener("click",igualarCuenta )
+
+function igualarCuenta (){
+
+  let perfilCreado = JSON.parse(localStorage.getItem("nuevoPerfil"))
+
+   usuarioStorage = document.getElementById("usuarioStorage")
+   contraseñaStorage =  document.getElementById("contraseñaStorage")
+
+   if((usuarioStorage.value == perfilCreado.usuario ) && (contraseñaStorage.value == perfilCreado.contraseña ))
+   {
+
+
+      swal(`bienvenido! ${usuarioStorage.value} ` , "ingreso correcto", "success");
+
+   }
+   else{
+      swal(" usuario y/o contraseña incorrectos!", "intente nuevamente !", "error");
+   }
+
+}
+
 
     
 
