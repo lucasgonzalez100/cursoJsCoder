@@ -93,13 +93,14 @@ ingresarPerfil.addEventListener("click", recuperoPerfil)
 // formDisplay = document.getElementByid("displayNone")
 
 
-function recuperoPerfil() {
-  let formValidacion = document.getElementById ("formValidacion")
-
-  formTipiado=`
+function recuperoPerfil(e) {
+   e.target.removeEventListener(e.type,recuperoPerfil )
+ 
+   let formValidacion = document.getElementById("formValidacion")
+   formTipiado = `
   <div  class="form_storage">
   <h3>ingresar a mi cuenta</h3>
-  <form id="formValidacion" class="form__all" action="">
+  <form  class="form__all" action="">
 
   <div class="form-control"><label for="usuario">Usuario</label>
   <input required id="usuarioStorage" type="text" placeholder="nombre">
@@ -107,22 +108,15 @@ function recuperoPerfil() {
 
 <div class="form-control"><label for="contraseñaStorage">Contraseña</label>
   <input required id="contraseñaStorage" type="password" placeholder="contraseña">
-
 </div>
 </div>
   `
-  divForm = document.createElement("div")
-  divForm.innerHTML= formTipiado
-  formValidacion.appendChild(divForm)
+   divForm = document.createElement("div")
+   divForm.innerHTML = formTipiado
+   formValidacion.appendChild(divForm)
+   }
 
- 
-
-
-
-
-
-}
-
+    
 
 
 
